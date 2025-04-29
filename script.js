@@ -100,18 +100,25 @@ function renderButtons() {
 }
 
 function togglePopup(crypto, wrap) {
-  // Скрыть все попапы кроме текущего
+  // Закрываем попап с анекдотами/мемами, если открыт
+  document.getElementById('gratitude-popup').classList.add('hidden');
+
+  // Скрыть все крипто-попапы кроме текущего
   document.querySelectorAll('.crypto-popup').forEach(p => {
-    if (p !== wrap.querySelector('.crypto-popup')) p.classList.remove('active');
+    if (p !== wrap.querySelector('.crypto-popup')) {
+      p.classList.remove('active');
+      p.innerHTML = '';
+    }
   });
-  // Закрыть, если открыт
+
+  // Закрыть текущий попап, если он уже открыт
   const popup = wrap.querySelector('.crypto-popup');
   if (popup.classList.contains('active')) {
     popup.classList.remove('active');
     popup.innerHTML = '';
     return;
   }
-  document.querySelectorAll('.crypto-popup').forEach(p => {p.classList.remove('active'); p.innerHTML = '';});
+
   // Открыть и отрисовать
   popup.classList.add('active');
   renderPopupContent(crypto, popup);
@@ -264,6 +271,13 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 function showGratitude(type) {
+  // Сворачиваем все крипто-попапы
+  document.querySelectorAll('.crypto-popup').forEach(popup => {
+    popup.classList.remove('active');
+    popup.innerHTML = '';
+  });
+
+  // Показываем контент
   let content = '';
   if (type === 'joke') content = getRandom(jokes);
   else if (type === 'meme') content = getRandom(memes);
@@ -271,6 +285,7 @@ function showGratitude(type) {
   else if (type === 'quote') content = getRandom(quotes);
   else if (type === 'thanks') content = getRandom(thanks);
   else if (type === 'bonus') content = getRandom(bonus);
+
   document.getElementById('gratitude-content').innerHTML = content;
   document.getElementById('gratitude-popup').classList.remove('hidden');
 }
