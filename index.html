@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Поддержи проект — Крипто Донаты</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Поддержи проект</h1>
+    <div class="subtitle">Донаты в криптовалюте — мгновенно, анонимно, безопасно</div>
+    <div class="donate-list">
+      <button class="donate-btn" data-crypto="btc">
+        <img class="crypto-logo" src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=026" alt="BTC" />
+        Bitcoin (BTC)
+      </button>
+      <button class="donate-btn" data-crypto="eth">
+        <img class="crypto-logo" src="https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=026" alt="ETH" />
+        Ethereum (ETH)
+      </button>
+      <button class="donate-btn" data-crypto="usdt">
+        <img class="crypto-logo" src="https://cryptologos.cc/logos/tether-usdt-logo.svg?v=026" alt="USDT" />
+        Tether (USDT, ERC20)
+      </button>
+      <button class="donate-btn" data-crypto="ton">
+        <img class="crypto-logo" src="https://cryptologos.cc/logos/toncoin-ton-logo.svg?v=026" alt="TON" />
+        TON (Toncoin)
+      </button>
+    </div>
+    <!-- Блок подарков благодарности с содержимым -->
+    <div id="gratitude-gifts">
+      <div class="gift" data-type="joke" title="Анекдот">🎁<div class="gift-label">Анекдот</div></div>
+      <div class="gift" data-type="meme" title="Мем">😂<div class="gift-label">Мем</div></div>
+      <div class="gift" data-type="song" title="Песенка">🎵<div class="gift-label">Песенка</div></div>
+      <div class="gift" data-type="quote" title="Цитата">💡<div class="gift-label">Цитата</div></div>
+    </div>
+    <div id="qr-section" class="qr-section">
+      <!-- Для USDT здесь появится select с выбором сети -->
+      <img id="qr-img" class="qr-img" src="" alt="QR код" />
+      <div class="wallet-address" id="wallet-address"></div>
+      <button class="copy-btn" id="copy-btn">Скопировать адрес</button>
+      <div class="copied" id="copied" style="display:none;">Скопировано!</div>
+    </div>
+    <!-- Всплывающее окно благодарности -->
+    <div id="gratitude-popup" class="hidden">
+      <span id="gratitude-close">&times;</span>
+      <div id="gratitude-content"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

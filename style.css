@@ -1,0 +1,309 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #18122B 0%, #393053 100%);
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background: rgba(34, 34, 51, 0.92);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 44px 32px 32px 32px;
+  max-width: 420px;
+  width: 95vw;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  border: 2px solid #7F27FF;
+  margin: 24px 0;
+  animation: fadeIn 1.2s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  font-weight: 900;
+  color: #7F27FF;
+  text-shadow: 0 0 12px #7F27FF66;
+}
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+  color: #A5A5A5;
+}
+.donate-btn-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.donate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+.donate-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #7F27FF 0%, #9F70FD 100%);
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px 0 #7F27FF44;
+  transition: transform 0.13s, box-shadow 0.13s;
+  outline: none;
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.donate-btn:hover, .donate-btn:focus {
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px 0 #7F27FF77;
+  background: linear-gradient(90deg, #9F70FD 0%, #7F27FF 100%);
+}
+.crypto-logo {
+  width: 28px;
+  height: 28px;
+  margin-right: 14px;
+  border-radius: 50%;
+  background: #fff3;
+  padding: 4px;
+  object-fit: contain;
+}
+.qr-section {
+  margin-top: 18px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.7s;
+}
+.qr-section.active {
+  display: flex;
+}
+.qr-img {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 14px #7F27FF33;
+  object-fit: contain;
+}
+.wallet-address {
+  font-size: 0.98rem;
+  color: #C6C6C6;
+  word-break: break-all;
+  margin-bottom: 8px;
+  margin-top: 2px;
+  padding: 0 4px;
+}
+.copy-btn {
+  background: none;
+  border: 1.5px solid #7F27FF;
+  color: #7F27FF;
+  padding: 5px 14px;
+  border-radius: 10px;
+  font-size: 0.99rem;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s;
+  margin-bottom: 6px;
+}
+.copy-btn:hover {
+  background: #7F27FF;
+  color: #fff;
+}
+.copied {
+  color: #00ffae;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  animation: fadeIn 0.3s;
+}
+.usdt-network-select {
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #7F27FF;
+  background: #222233;
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  outline: none;
+  margin-top: 8px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  box-shadow: 0 2px 8px #7F27FF22;
+  transition: border 0.15s;
+}
+.usdt-network-select:focus {
+  border: 2px solid #9F70FD;
+}
+.crypto-popup {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(34, 34, 51, 0.96);
+  border: 2px solid #7F27FF;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px 0 #7F27FF33;
+  margin: 12px 0 8px 0;
+  padding: 18px 12px 14px 12px;
+  animation: fadeIn 0.5s;
+  width: 100%;
+  max-width: 340px;
+  z-index: 2;
+}
+.crypto-popup.active {
+  display: flex;
+}
+.crypto-popup .qr-img {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 8px;
+}
+.crypto-popup .wallet-address {
+  font-size: 0.96rem;
+  color: #C6C6C6;
+  word-break: break-all;
+  margin-bottom: 8px;
+  margin-top: 2px;
+  padding: 0 4px;
+}
+.crypto-popup .copy-btn {
+  background: none;
+  border: 1.5px solid #7F27FF;
+  color: #7F27FF;
+  padding: 5px 14px;
+  border-radius: 10px;
+  font-size: 0.99rem;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s;
+  margin-bottom: 6px;
+}
+.crypto-popup .copy-btn:hover {
+  background: #7F27FF;
+  color: #fff;
+}
+.crypto-popup .thanks {
+  color: #00ffae;
+  font-size: 1.01rem;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  animation: fadeIn 0.3s;
+}
+#gratitude-gifts {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+.gift {
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  user-select: none;
+}
+.gift:active, .gift.active {
+  color: #111;
+}
+.gift-label {
+  font-size: 0.92rem;
+  margin-top: 2px;
+  color: #555;
+  text-align: center;
+  font-weight: 500;
+}
+.gift:hover, .gift.active {
+  animation: shake 0.6s;
+  animation-iteration-count: 1;
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-8px); }
+  80% { transform: translateX(8px); }
+  100% { transform: translateX(0); }
+}
+#gratitude-popup {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 32px 24px 24px 24px;
+  z-index: 9999;
+  min-width: 250px;
+  max-width: 90vw;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #111;
+}
+#gratitude-popup.hidden {
+  display: none;
+}
+#gratitude-close {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #222;
+  background: #eee;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+#gratitude-close:hover {
+  background: #ddd;
+}
+#gratitude-content img {
+  max-width: 180px;
+  margin: 12px auto;
+  display: block;
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 18px 4vw 18px 4vw;
+    border-radius: 18px;
+  }
+  h1 { font-size: 1.5rem; }
+  .qr-img { width: 180px; height: 180px; }
+}
+@media (max-width: 400px) {
+  .container {
+    padding: 6vw 2vw;
+  }
+  .donate-btn {
+    font-size: 0.95rem;
+    padding: 10px 10px;
+  }
+  .crypto-logo {
+    width: 22px;
+    height: 22px;
+    margin-right: 7px;
+  }
+}
