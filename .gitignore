@@ -1,0 +1,27 @@
+# Node.js (если используешь)
+node_modules/
+npm-debug.log*
+
+# WebStorm/JetBrains IDE
+.idea/
+*.iml
+*.iws
+out/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Build / Dist folders
+dist/
+build/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Optional cache
+.cache/
